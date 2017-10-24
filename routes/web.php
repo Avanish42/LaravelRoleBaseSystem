@@ -10,17 +10,32 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+//use Illuminate\Support\Facades\Auth;
+//use App\Http\Controllers\Auth\Auth;
 
 Route::get('/', function () {
     return view('auth.login');
 });
 
+Route::post('authenticate','Auth\LoginController@authenticate');
+
+Route::get('uploadbill','Admin\BillController@uploadBill');
+
+Route::post('/storebill','Admin\BillController@storeBill');
+Route::get('storebill',function (){
+
+
+    dd(config('app.company_name')."-".date("dmY")."-"."1");
+});
+
+//Route::post('authenticate','');
 Route::get('/home','HomeController@index');
+
 
 Auth::routes();
 //Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/login','HomeController@index');
+//Route::get('/login','HomeController@index');
 
 Route::group(['prefix'=> 'Role', 'namespace'=>'Admin'], function(){
     Route::get('add','RoleController@add');
@@ -50,13 +65,13 @@ Route::group(['prefix'=> 'Employee','namespace'=>'Admin'], function(){
     Route::get('delete/{id}','EmployeeController@delete');
 
 });
-
-Route::group(['prefix'=> 'Bill','namespace'=>'Admin'], function(){
-
-    Route::get('add','BillController@add') ->middleware('permission:edit');
-    Route::get('add','BillController@add')->middleware('role:manager');
-
-});
+//
+//Route::group(['prefix'=> 'Bill','namespace'=>'Admin'], function(){
+//
+//    Route::get('add','BillController@add') ->middleware('permission:edit');
+//    Route::get('add','BillController@add')->middleware('role:manager');
+//
+//});
 
 Route::group(['prefix'=> 'Relation','namespace'=>'Admin'], function(){
 
@@ -68,6 +83,10 @@ Route::group(['prefix'=> 'Relation','namespace'=>'Admin'], function(){
     Route::get('editEmployeeRelation/{id}','RelationController@editEmployeeRelation');
     Route::post('updateEmployeeRelation','RelationController@updateEmployeeRelation');
 
+});
+
+Route::get('/manager', function (){
+   return view('Users.index');
 });
 
 

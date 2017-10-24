@@ -20,13 +20,10 @@
                             <h2>
                                 Add New Employee
                             </h2>
-
                         </div>
                         <div class="body">
                             <form method="POST" enctype="multipart/form-data"  id="add_attribute" action="{{ url('/Employee/store')  }}">
                                 {{csrf_field()}}
-
-
                                 <div class="row clearfix">
                                     <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
                                         <label for="email_address_2">Employee Name</label>
@@ -39,7 +36,6 @@
                                         </div>
                                     </div>
                                 </div>
-
                                 <div class="row clearfix">
                                     <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
                                         <label for="email_address_2">Employee Email</label>
@@ -68,7 +64,190 @@
 
                                 <div class="row clearfix">
                                     <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
-                                        <label for="email_address_2">Permission Description</label>
+                                        <label for="email_address_2"> Father Name </label>
+                                    </div>
+                                    <div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
+                                        <div class="form-group">
+                                            <div class="form-line">
+                                                <input type="text" name="description" id="companyName" class="form-control" placeholder="Enter your Company Name">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row clearfix">
+                                    <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
+                                        <label for="email_address_2"> Local Address </label>
+                                    </div>
+                                    <div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
+                                        <div class="form-group">
+                                            <div class="form-line">
+                                                <input type="text" name="description" id="companyName" class="form-control" placeholder="Enter your Company Name">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row clearfix">
+                                    <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
+                                        <label for="email_address_2"> Permanent Address </label>
+                                    </div>
+                                    <div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
+                                        <div class="form-group">
+                                            <div class="form-line">
+                                                <input type="text" name="description" id="companyName" class="form-control" placeholder="Enter your Company Name">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row clearfix">
+                                    <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
+                                        <label for="email_address_2"> Id Proof Name </label>
+                                    </div>
+                                    <div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
+                                        <div class="form-group">
+                                            <div class="form-line">
+                                                <input type="text" name="description" id="companyName" class="form-control" placeholder="Enter your Company Name">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row clearfix">
+                                    <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
+                                        <label for="email_address_2"> Id Proof No </label>
+                                    </div>
+                                    <div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
+                                        <div class="form-group">
+                                            <div class="form-line">
+                                                <input type="text" name="description" id="companyName" class="form-control" placeholder="Enter your Company Name">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row clearfix">
+                                    <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
+                                        <label for="email_address_2"> Id Proof Image </label>
+                                    </div>
+                                    <div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
+                                        <div class="form-group">
+                                            <div class="form-line">
+                                                <input type="text" name="description" id="companyName" class="form-control" placeholder="Enter your Company Name">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row clearfix">
+                                    <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
+                                        <label for="email_address_2"> Address Proof Name </label>
+                                    </div>
+                                    <div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
+                                        <div class="form-group">
+                                            <div class="form-line">
+                                                <input type="text" name="description" id="companyName" class="form-control" placeholder="Enter your Company Name">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row clearfix">
+                                    <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
+                                        <label for="email_address_2"> Address Proof No </label>
+                                    </div>
+                                    <div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
+                                        <div class="form-group">
+                                            <div class="form-line">
+                                                <input type="text" name="description" id="companyName" class="form-control" placeholder="Enter your Company Name">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row clearfix">
+                                    <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
+                                        <label for="email_address_2"> Address Proof Image  </label>
+                                    </div>
+                                    <div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
+                                        <div class="form-group">
+                                            <div class="form-line">
+                                                <input type="text" name="description" id="companyName" class="form-control" placeholder="Enter your Company Name">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row clearfix">
+                                    <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
+                                        <label for="email_address_2"> Id Proof </label>
+                                    </div>
+                                    <div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
+                                        <div class="form-group">
+                                            <div class="form-line">
+                                                <input type="text" name="description" id="companyName" class="form-control" placeholder="Enter your Company Name">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div class="row clearfix">
+                                    <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
+                                        <label for="email_address_2"> Employee Image </label>
+                                    </div>
+                                    <div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
+                                        <div class="form-group">
+                                            <div class="form-line">
+                                                <input type="text" name="description" id="companyName" class="form-control" placeholder="Enter your Company Name">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row clearfix">
+                                    <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
+                                        <label for="email_address_2"> Date of Joining  </label>
+                                    </div>
+                                    <div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
+                                        <div class="form-group">
+                                            <div class="form-line">
+                                                <input type="text" name="description" id="companyName" class="form-control" placeholder="Enter your Company Name">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row clearfix">
+                                    <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
+                                        <label for="email_address_2"> Salary(per month)  </label>
+                                    </div>
+                                    <div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
+                                        <div class="form-group">
+                                            <div class="form-line">
+                                                <input type="text" name="description" id="companyName" class="form-control" placeholder="Enter your Company Name">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row clearfix">
+                                    <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
+                                        <label for="email_address_2"> Other Perks/ Remarks  </label>
+                                    </div>
+                                    <div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
+                                        <div class="form-group">
+                                            <div class="form-line">
+                                                <input type="text" name="description" id="companyName" class="form-control" placeholder="Enter your Company Name">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row clearfix">
+                                    <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
+                                        <label for="email_address_2"> Police Verification  </label>
                                     </div>
                                     <div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
                                         <div class="form-group">
@@ -93,11 +272,7 @@
                 </div>
             </div>
             <!-- #END# Horizontal Layout -->
-
-
-
             <!-- #END# Inline Layout | With Floating Label -->
-
         </div>
     </section>
 @endsection

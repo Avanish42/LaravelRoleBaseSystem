@@ -44,6 +44,8 @@
 <!-- Flot Charts Plugin Js -->
 
 
+
+
 <!-- Sparkline Chart Plugin Js -->
 <script src="{{URL::asset('plugins/jquery-sparkline/jquery.sparkline.js')}}"></script>
 
@@ -59,21 +61,18 @@
     $(function () {
 //        Textare auto growth
         autosize($('textarea.auto-growth'));
-
 //        Datetimepicker plugin
         $('.datetimepicker').bootstrapMaterialDatePicker({
             format: 'dddd DD MMMM YYYY - HH:mm',
             clearButton: true,
             weekStart: 1
         });
-
         $('.datepicker').bootstrapMaterialDatePicker({
             format: 'dddd DD MMMM YYYY',
             clearButton: true,
             weekStart: 1,
             time: false
         });
-
         $('.timepicker').bootstrapMaterialDatePicker({
             format: 'HH:mm',
             clearButton: true,
@@ -83,5 +82,4 @@
             responsive: true
         });
     });
-
 </script>

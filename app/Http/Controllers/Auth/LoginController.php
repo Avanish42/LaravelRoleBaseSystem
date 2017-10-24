@@ -1,9 +1,11 @@
 <?php
 
 namespace App\Http\Controllers\Auth;
-
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use App\User;
 
 class LoginController extends Controller
 {
@@ -35,5 +37,39 @@ class LoginController extends Controller
     public function __construct()
     {
         $this->middleware('guest')->except('logout');
+    }
+
+    public function authenticate(Request $request)
+    {
+//        dd($request);
+
+        if(Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
+
+            // Authentication passed...
+            //return "admin";
+            //print_r(Auth::user()->hasRole);
+            //dd(Auth::id());
+            $user=User::where('id','=',Auth::id())->with('roles')->get()->toArray();
+//            dd($user);
+            if(Auth::user()->hasRole('admin'))
+            {
+                return redirect()->intended('home');
+
+                //     dd("manager is login ");
+            }
+
+
+            elseif(Auth::user()->hasRole('manager'))
+            {
+
+                  return redirect()->intended('uploadbill');
+
+            }
+
+           // return redirect()->intended('dashboard');
+
+
+
+        }
     }
 }
