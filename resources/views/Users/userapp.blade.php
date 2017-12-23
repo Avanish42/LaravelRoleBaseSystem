@@ -17,6 +17,7 @@
     </script>
 @endif
 @yield('main-content')
+<div class="loading"></div>
 @include("Users.comman.footer")
 </body>
 </html>

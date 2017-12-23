@@ -15,8 +15,8 @@ class CreateBillsTable extends Migration
     {
         Schema::create('bills', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('allocationNo')->unique();
-            $table->string('billNo')->unique();
+            $table->string('allocationNo');
+            $table->string('billNo');
             $table->string('retailerName');
             $table->float('billAmount');
             $table->float('saleReturn')->nullable();
@@ -37,6 +37,7 @@ class CreateBillsTable extends Migration
             $table->string('debitAdjust');
             $table->string('taxAdjust');
             $table->string('netAmount');
+            $table->unique(['allocationNo', 'billNo']);
             $table->timestamps();
 
         });

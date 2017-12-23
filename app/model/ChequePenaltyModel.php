@@ -1,13 +1,10 @@
 <?php
 
-namespace App;
+namespace App\model;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Billproduct extends Model
+class ChequePenaltyModel extends Model
 {
     //
-
-
-
 }

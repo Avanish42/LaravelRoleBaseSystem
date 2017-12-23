@@ -324,28 +324,62 @@
                     <div class="card-body collapse in">
                         <div class="card-block">
                             <div class="card-text">
+                                @if(session('status') && session('status') == 400)
+                                    <div class="row">
+                                        <div class="alert alert-danger alert-dismissable ">
+                                            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                                            <strong>Warning!</strong> {{session('message')}}
+                                        </div>
+                                    </div>
+                                @endif
+                                    @if(session('status') && session('status') == 100)
+                                        <div class="row">
+                                            <div class="alert alert-success alert-dismissable">
+                                                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                                                <strong>Success!</strong> {{session('message')}}
+                                            </div>
+                                        </div>
+                                    @endif
+                                    <div class="row ajaxerror" style="display: none">
+                                        <div class="alert alert-danger alert-dismissable ">
+                                            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                                            <strong>Warning!</strong><p class="errormessage"></p>
+                                        </div>
+                                    </div>
+
+                                    <div class="row ajaxsuccess" style="display: none">
+                                        <div class="alert alert-success alert-dismissable ">
+                                            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                                            <strong>Warning!</strong><p class="successmessage"></p>
+                                        </div>
+                                    </div>
 
                                 <div class="row">
                                     <div class="col-md-9">
                                         <div class="row">
                                             <div class="col-sm-8 col-md-2">
-                                                <p>Allocation - 060717-1</p>
+                                                <p>Allocation :- {{session()->get( 'allocationno' )}}</p>
                                                 <p>Reference: Gobal Market</p>
-                                                <p><a href="#" class="btn btn-primary btn-sm btn-block">Cancel Allocation</a></p>
+                                                <p><a href="/manager-dashboard" class="btn btn-primary btn-sm btn-block">Cancel Allocation</a></p>
                                             </div>
 
                                             <div class="col-sm-4 col-md-2">
 
                                                 <p>
-                                                    <select id="Select1" >
+                                                    <select id="Select1" class="selectemp"  >
                                                         <option>Tag Employee </option>
+                                                        @foreach($staff as $s)
+                                                        <option value="{{$s['id']}}">{{$s['name']}}</option>
+                                                            @endforeach
                                                     </select></p>
 
                                                 <div class="all dropdown-menu" style="display: block; position: static; width: 100%; margin-top: 0; float: none;">
-                                                    <h5 class="dropdown-header"><b>Employees</b></h5>
-                                                    <a class="dropdown-item" href="#">Amitav</a>
-                                                    <a class="dropdown-item" href="#">Santosh</a>
-                                                    <a class="dropdown-item" href="#">Bibhu</a>
+                                                    <h5 class="dropdown-header "><b>Employees</b></h5>
+                                                    <div class="addemploye">
+
+                                                        {{--<a class="dropdown-item empname" href="#">Amitav</a>--}}
+                                                    </div>
+
                                                 </div>
                                             </div>
                                             <div class="col-sm-12 col-md-5">
@@ -421,59 +455,26 @@
                                                             <td colspan="11">Current Supply Bills</td>
                                                         </tr>
 
-                                                        <tr class="gray">
+
+
+                                                        <tr class="gray" id="currentSuppluId">
                                                             <th>S No.</th>
                                                             <th>Bill No.</th>
+                                                            <th>Allocation No.</th>
                                                             <th>Bill Date</th>
                                                             <th>Retailer Name</th>
                                                             <th>Bill Amt</th>
                                                             <th>Sale Return</th>
                                                             <th>Past Coll.</th>
                                                             <th>Pending Amt</th>
-                                                            <th>Staus</th>
+                                                            {{--<th>Staus</th>--}}
                                                             <th>Today's Coll.</th>
                                                             <th>Remark</th>
                                                         </tr>
 
-                                                        <tr>
-                                                            <td>1</td>
-                                                            <td>NS1812345324</td>
-                                                            <td>2-Aug-17</td>
-                                                            <td>Baba Sales</td>
-                                                            <td>10,345</td>
-                                                            <td>-</td>
-                                                            <td>-</td>
-                                                            <td>10,345</td>
-                                                            <td>10,345</td>
-                                                            <td>-</td>
-                                                            <td>x</td>
-                                                        </tr>
-                                                        <tr class="odd">
-                                                            <td>2</td>
-                                                            <td>NS1812345325</td>
-                                                            <td>22-Aug-17</td>
-                                                            <td>Krishna Sales</td>
-                                                            <td>2,345</td>
-                                                            <td>-</td>
-                                                            <td>-</td>
-                                                            <td>2,345</td>
-                                                            <td>2,345</td>
-                                                            <td>-</td>
-                                                            <td>x</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>3</td>
-                                                            <td>NS1812345326</td>
-                                                            <td>8-Aug-17</td>
-                                                            <td>Radhakrishna Store</td>
-                                                            <td>2,000</td>
-                                                            <td>-</td>
-                                                            <td>-</td>
-                                                            <td>2,000</td>
-                                                            <td>-</td>
-                                                            <td>2,000</td>
-                                                            <td>x</td>
-                                                        </tr>
+
+
+
                                                     </table>
                                                 </div>
                                                 <br />
@@ -484,8 +485,7 @@
                                                             <td colspan="10">Past Bills</td>
 
                                                         </tr>
-
-                                                        <tr class="gray">
+                                                        <tr class="gray" id="pastSupplyId">
                                                             <th>S No.</th>
                                                             <th>Bill No.</th>
                                                             <th>Bill Date</th>
@@ -511,32 +511,7 @@
                                                             <td>x</td>
 
                                                         </tr>
-                                                        <tr class="odd">
-                                                            <td>2</td>
-                                                            <td>NS1812345354</td>
-                                                            <td>22-Aug-17</td>
-                                                            <td>Krishna Sales</td>
-                                                            <td>2,345</td>
-                                                            <td>-</td>
-                                                            <td>-</td>
-                                                            <td>2,345</td>
-                                                            <td>-</td>
-                                                            <td>x</td>
 
-                                                        </tr>
-                                                        <tr>
-                                                            <td>3</td>
-                                                            <td>NS1812345455</td>
-                                                            <td>12-Aug-17</td>
-                                                            <td>Sai Sales</td>
-                                                            <td>13,345</td>
-                                                            <td>-</td>
-                                                            <td>-</td>
-                                                            <td>13,345</td>
-                                                            <td>4,345</td>
-                                                            <td>x</td>
-
-                                                        </tr>
                                                     </table>
                                                 </div>
                                                 <br />
@@ -665,6 +640,11 @@
 
                                     <div class="col-md-3">
                                         <div class="table-responsive">
+                                            <form id="formData"  method="post" action="{{ url('/storebill')}}" enctype="multipart/form-data">
+                                                <div class="hidden-employee">
+                                                    <input type="hidden" name="allocationno" value="{{session()->get( 'allocationno' )}}">
+
+                                                </div>
                                             <table class="table gray font-10 m-b-10">
                                                 <thead>
                                                 <tr>
@@ -673,44 +653,48 @@
                                                 </thead>
                                                 <tbody>
                                                 <tr>
-                                                    <td>From</td>
-                                                    <td class="text-xs-right">
-                                                        <input id="from" type="text" class="td-input"/>
-                                                    </td>
                                                     <td>To</td>
                                                     <td class="text-xs-right">
-                                                        <input id="to" type="text" class="td-input"/>
+                                                        <input id="from "  type="text"  name="billTo" autocomplete="off" class="td-input toValue unallocatatedBills"/ >
+                                                    </td>
+                                                    <td>From</td>
+                                                    <td class="text-xs-right">
+                                                        <input id="  to"  type="text" name="billFrom" autocomplete="off" class="td-input fromValue unallocatatedBills"/>
                                                     </td>
                                                 </tr>
                                                 <tr>
-                                                    <td colspan="2" class="text-xs-right"><input id="Text9" type="text" /></td>
-                                                    <td colspan="2"></td>
+                                                    <td colspan="2">Bill No.</td>
+                                                    <td colspan="2" class="text-xs-right"><input id="Text9" class=" singleValue unallocatatedBills" autocomplete="off" name="billno" type="text" /></td>
                                                 </tr>
+
                                                 <tr>
-                                                    <td colspan="2" class="text-xs-right"><input id="Text10" type="text" /></td>
-                                                    <td colspan="2"></td>
-                                                </tr>
-                                                <tr>
-                                                    <td colspan="2" class="text-xs-right"><input id="Text11" type="text" /></td>
-                                                    <td colspan="2"></td>
-                                                </tr>
-                                                <tr>
-                                                    <td colspan="2" class="text-xs-right"><input id="Text12" type="text" /></td>
-                                                    <td colspan="2"></td>
-                                                </tr>
-                                                <tr>
-                                                    <form  method="post" action="{{ url('/storebill')}}" enctype="multipart/form-data">
                                                         {{csrf_field()}}
-                                                        <td> <input type="file" name="upload"></td>
-                                                    <td colspan="2" class="text-xs-left"><input class="btn btn-success btn-sm" value=" AddCurrent Bills" type="submit"> </td>
-                                                    </form>
+
+                                                        {{--<td> <input type="file" name="upload"></td>--}}
+                                                    {{--<td colspan="2" class="text-xs-left"><input class="btn btn-success btn-sm addNewAllocation" value=" AddCurrent Bills" type="submit"> </td>--}}
+                                                    <td colspan="2" class="text-xs-left"><button class="btn btn-success btn-sm addNewAllocation" > AddCurrent Bills</button> </td>
                                                 </tr>
                                                 </tbody>
                                             </table>
+                                            </form>
                                         </div>
 
                                         <div class="table-responsive">
-                                            <table class="table gray font-10 m-b-10">
+                                            <form class="pastallocationform" method="post">
+                                                {{csrf_field()}}
+
+                                                <table class="table gray font-10 m-b-10">
+
+                                                    <div class="hidden-employee">
+                                                        <input type="hidden" name="allocationno" value="{{session()->get( 'allocationno' )}}">
+                                                    </div>
+
+                                                    <tr><td colspan="2"><input id="Text15" class="pastallocation pastallocationtext" name="pastBill" autocomplete="off" type="text" /></td></tr>
+
+                                                    <tr>
+                                                        {{--<td><input id="Text18" class="pastallocation" type="text" /></td>--}}
+                                                        <td><button class="btn btn-success btn-sm pastAllocation">Add Past Bills</button></td>
+                                                    </tr>
                                                 <thead>
                                                 <tr>
                                                     <th class="text-xs-center" colspan="2">Past Bills</th>
@@ -718,16 +702,10 @@
                                                 </thead>
                                                 <tbody>
 
-                                                <tr><td colspan="2"><input id="Text15" type="text" /></td></tr>
-                                                <tr><td colspan="2"><input id="Text16" type="text" /></td></tr>
-                                                <tr><td colspan="2"><input id="Text17" type="text" /></td></tr>
-                                                <tr>
-                                                    <td><input id="Text18" type="text" /></td>
-                                                    <td><a href="#" class="btn btn-success btn-sm">Add Past Bills</a></td>
-                                                </tr>
-
                                                 </tbody>
                                             </table>
+                                            </form>
+
                                         </div>
 
                                     </div>

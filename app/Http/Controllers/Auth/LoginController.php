@@ -27,7 +27,7 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    //protected $redirectTo = '/home';
 
     /**
      * Create a new controller instance.
@@ -41,35 +41,38 @@ class LoginController extends Controller
 
     public function authenticate(Request $request)
     {
-//        dd($request);
+            //   dd($request->toArray());
 
         if(Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
-
+//            return redirect()->intended('admin');
             // Authentication passed...
             //return "admin";
             //print_r(Auth::user()->hasRole);
             //dd(Auth::id());
             $user=User::where('id','=',Auth::id())->with('roles')->get()->toArray();
-//            dd($user);
+             // dd($user);
             if(Auth::user()->hasRole('admin'))
             {
                 return redirect()->intended('home');
-
-                //     dd("manager is login ");
             }
-
 
             elseif(Auth::user()->hasRole('manager'))
             {
-
-                  return redirect()->intended('uploadbill');
-
+                  return redirect()->intended('manager-dashboard');
+            }
+            elseif (Auth::user()->hasRole('cashier')){
+                return redirect()->intended('cashier-dashboard');
             }
 
-           // return redirect()->intended('dashboard');
 
 
 
+
+        }
+
+        else
+        {
+            return back();
         }
     }
 }

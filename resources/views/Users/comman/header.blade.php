@@ -30,5 +30,7 @@
     <link href="{{URL::asset('css/usercss/timeline.min.css')}}" rel="stylesheet">
     <link href="{{URL::asset('css/usercss/unslider.css')}}" rel="stylesheet">
     <link href="{{URL::asset('css/usercss/vertical-overlay-menu.min.css')}}" rel="stylesheet">
+
+
     <title> @yield('pagetitle')</title>
 </head>

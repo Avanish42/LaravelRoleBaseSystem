@@ -60,10 +60,6 @@ class RelationController extends Controller
 
             }
         }
-
-
-
-
             //For check permission and add new Permission
         if($request->addperm) {
             foreach ($request->addperm as $k => $v) {
@@ -74,7 +70,6 @@ class RelationController extends Controller
                 }
             }
         }
-
 
         return redirect('Relation/PermissionRelation')->with('returnStatus', true)->with('status', 101)->with('message', 'Permission  Edited Successfully');
 
@@ -87,8 +82,6 @@ class RelationController extends Controller
         $allrole=Role::all()->toArray();
 
         return view('relation.editEmployeeRelation' ,compact('employee','allrole'));
-
-
 
     }
     public function updateEmployeeRelation(Request $request)
@@ -105,9 +98,6 @@ class RelationController extends Controller
                     $user->detachRoles($role->roles);
 //                $role = $user->roles()->where("name", $v)->first();
                  //$user->roles()->detatch($role);
-
-
-
 
             }
         }

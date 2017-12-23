@@ -35,7 +35,7 @@ class CreateBillproductsTable extends Migration
             $table->string('grossAmount');
             $table->string('netAmount');
             $table->timestamps();
-            $table->foreign('salesInvoiceNumber')->references('billNo')->on('bills')->onDelete('cascade')->onUpdate('cascade');
+
         });
     }
     /**

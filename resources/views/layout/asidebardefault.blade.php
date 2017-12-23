@@ -149,6 +149,47 @@
                     </ul>
                 </li>
 
+                <li>
+                    <a href="javascript:void(0);" class="menu-toggle">
+                        <i class="material-icons">widgets</i>
+                        <span>Cheque Penalty</span>
+                    </a>
+                    <ul class="ml-menu">
+                        <li>
+                            <a href="{{url('ChequePenalty/show')}}">
+                                <span>Show cheque penalty</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{url('ChequePenalty/add')}}">
+                                <span>Add new cheque Penalty</span>
+                            </a>
+
+                        </li>
+                    </ul>
+                </li>
+
+                <li>
+                    <a href="javascript:void(0);" class="menu-toggle">
+                        <i class="material-icons">widgets</i>
+                        <span>Employee Penalty</span>
+                    </a>
+                    <ul class="ml-menu">
+                        <li>
+                            <a href="{{url('ChequePenalty/EmployeeRelation')}}">
+                                <span>Show Employee penalty</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{url('ChequePenalty/PermissionRelation')}}">
+                                <span>Add new Employee Penalty</span>
+                            </a>
+
+                        </li>
+                    </ul>
+                </li>
+
+
             </ul>
         </div>
         <!-- #Menu -->
